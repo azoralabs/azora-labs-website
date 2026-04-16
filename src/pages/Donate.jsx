@@ -30,7 +30,7 @@ const members = 4         // total supporting sponsors
 // Tiers: 'diamond', 'platinum', 'gold', 'silver', 'bronze'
 const sponsorsList = [
   { name: 'Merea Games', tier: 'gold', logo: '/assets/merea_logo.jpeg', href: 'https://mereagames.com', desc: 'Indie game studio crafting immersive experiences.' },
-  { name: 'DoubleG Arts', tier: 'platinum', logo: '/assets/dga.png', href: 'https://doublegarts.eu', desc: 'Creative studio building digital experiences that matter' },
+  { name: 'DoubleG Arts', tier: 'platinum', logo: '/assets/dga.png', href: 'https://doublegarts.eu', desc: 'Creative studio building digital experiences that matter.' },
   { name: 'Daniela Bilciu', tier: 'bronze', logo: '/assets/daniela_bilciu_logo.png', href: 'https://danielabilciu.eu', circle: true, desc: 'Healthcare professional interested in innovative projects of all kind.' },
   { name: 'Mihaela Gheorghe', tier: 'bronze', circle: true, desc: 'Generous supporter of open-source development.' },
 ]
