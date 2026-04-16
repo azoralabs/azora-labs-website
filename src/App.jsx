@@ -6,19 +6,19 @@ const projects = [
     name: 'Azora Studio',
     desc: 'Visual editor and IDE for the Azora Engine.',
     href: 'https://azorastudio.org',
-    color: 'border-az-secondary',
+    color: 'border-az-primary bg-az-primary/10',
   },
   {
     name: 'Azora Engine',
     desc: 'Cross-platform game engine built with Azora.',
     href: 'https://azoraengine.org',
-    color: 'border-az-primary',
+    color: 'border-az-secondary bg-az-secondary/10',
   },
   {
     name: 'Azora Language',
     desc: 'The Azora programming language compiler and toolchain.',
     href: 'https://azoralang.org',
-    color: 'border-az-green',
+    color: 'border-az-red bg-az-red/10',
   },
 ]
 
@@ -42,7 +42,7 @@ export default function App() {
 
           {/* Projects */}
           <section className="mb-20">
-            <h2 className="text-2xl font-semibold text-az-10 mb-8 text-center">Projects</h2>
+            <h2 className="text-2xl font-semibold text-az-10 mb-8 text-center">Ecosystem</h2>
             <div className="grid md:grid-cols-3 gap-4">
               {projects.map(p => (
                 <a
@@ -50,7 +50,7 @@ export default function App() {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-xl border ${p.color} bg-az-85 p-6 hover:bg-white/10 transition-colors`}
+                  className={`rounded-xl border ${p.color} p-6 hover:bg-white/10 transition-colors`}
                 >
                   <h3 className="font-semibold text-az-10 text-lg mb-2">{p.name}</h3>
                   <p className="text-sm text-az-45">{p.desc}</p>
