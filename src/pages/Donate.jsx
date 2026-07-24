@@ -139,43 +139,6 @@ export default function Donate() {
             </div>
           </section>
 
-          {/* Funding Stats */}
-          <section className="mb-16">
-            <h2 className="text-xl font-semibold text-az-10 mb-8 text-center">Funding</h2>
-
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="rounded-xl border border-az-75 bg-az-85 p-6 text-center">
-                <p className="text-3xl font-bold text-az-primary">${perMonth.toLocaleString()}</p>
-                <p className="text-sm text-az-45 mt-1">Per Month</p>
-              </div>
-              <div className="rounded-xl border border-az-75 bg-az-85 p-6 text-center">
-                <p className="text-3xl font-bold text-az-secondary">${oneTime.toLocaleString()}</p>
-                <p className="text-sm text-az-45 mt-1">One Time</p>
-              </div>
-              <div className="rounded-xl border border-az-75 bg-az-85 p-6 text-center">
-                <p className="text-3xl font-bold text-az-10">{members.toLocaleString()}</p>
-                <p className="text-sm text-az-45 mt-1">Sponsors</p>
-              </div>
-            </div>
-
-            {/* Yearly progress bar */}
-            <div className="rounded-xl border border-az-75 bg-az-85 p-6">
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-2xl font-bold text-az-primary">${accumulated.toLocaleString()}</span>
-                <span className="text-sm text-az-45">of ${fundingGoal.toLocaleString()} yearly goal</span>
-              </div>
-              <div className="w-full bg-az-80 rounded-full h-4 overflow-hidden">
-                <div
-                  className="h-full bg-az-primary rounded-full transition-all duration-500"
-                  style={{ width: `${Math.min((accumulated / fundingGoal) * 100, 100)}%` }}
-                />
-              </div>
-              <p className="text-xs text-az-60 mt-2">
-                {Math.round((accumulated / fundingGoal) * 100)}% of yearly goal
-              </p>
-            </div>
-          </section>
-
           {/* Sponsors */}
           {sponsorsList.length > 0 && (
             <section className="mb-16">
