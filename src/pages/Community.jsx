@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const DiscordIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,19 @@ const InstagramIcon = () => (
   </svg>
 )
 
+const AzoraDevIcon = () => (
+  <img src="/assets/azora_logo.svg" alt="" className="h-7 w-7" />
+)
+
 const links = [
+  {
+    name: 'Azora Dev',
+    desc: 'Ask technical questions, publish articles, and find answers from Azora developers.',
+    href: 'https://azora.dev',
+    icon: AzoraDevIcon,
+    color: 'text-az-primary',
+    border: 'hover:border-az-primary',
+  },
   {
     name: 'Discord',
     desc: 'Join the community, ask questions, and chat with other Azora developers.',
@@ -97,17 +109,7 @@ const links = [
 export default function Community() {
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-az-90/80 backdrop-blur-md border-b border-az-75 px-4">
-        <div className="max-w-6xl mx-auto h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <img src="/assets/azora_logo.svg" alt="Azora" className="h-7 w-7" />
-            <span className="font-semibold text-az-10">Azora Labs</span>
-          </Link>
-          <Link to="/" className="text-sm text-az-40 hover:text-az-10 transition-colors">
-            &larr; Back to Home
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       <main className="pt-28 pb-20 px-4">
         <div className="max-w-3xl mx-auto">

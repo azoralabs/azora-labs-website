@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./site-nav.css";
 
 @theme {
   /* Azora Neutral Scale */

@@ -6,3 +6,11 @@ $ vite --port 5175 --strictPort
 
   ➜  Local:   http://localhost:5175/
   ➜  Network: use --host to expose
+5:12:01 PM [vite] (client) page reload .github/workflows/deploy.yml
+5:12:01 PM [vite] (client) page reload .github/workflows/deploy.yml
+6:07:28 PM [vite] (client) hmr update /src/components/Navbar.jsx, /src/index.css
+6:08:28 PM [vite] (client) hmr update /src/pages/Community.jsx, /src/index.css
+6:08:29 PM [vite] (client) hmr update /src/index.css
+6:14:47 PM [vite] (client) hmr update /src/pages/Community.jsx, /src/index.css
+6:14:47 PM [vite] (client) hmr update /src/pages/Donate.jsx, /src/index.css
+6:14:47 PM [vite] (client) hmr update /src/components/Navbar.jsx, /src/index.css

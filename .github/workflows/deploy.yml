@@ -1,13 +1,24 @@
-name: Deploy to Hostinger
+name: Deploy to Azora VPS
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://azoralabs.org
 
     steps:
       - name: Checkout
@@ -25,13 +36,34 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Hostinger via SSH
-        uses: burnett01/rsync-deployments@7.0.1
-        with:
-          switches: -avz
-          path: dist/
-          remote_path: /home/u630685576/domains/azoralabs.org/public_html/
-          remote_host: ${{ secrets.HOSTINGER_HOST }}
-          remote_port: ${{ secrets.HOSTINGER_PORT }}
-          remote_user: ${{ secrets.HOSTINGER_USER }}
-          remote_key: ${{ secrets.HOSTINGER_SSH_KEY }}
+      - name: Validate deployment key
+        env:
+          AZORA_SSH_PRIVATE_KEY: ${{ secrets.AZORA_SSH_PRIVATE_KEY }}
+        run: |
+          test -n "${AZORA_SSH_PRIVATE_KEY}" || {
+            echo "::error::Missing required production secret AZORA_SSH_PRIVATE_KEY"
+            exit 1
+          }
+
+      - name: Set up SSH
+        env:
+          AZORA_SSH_PRIVATE_KEY: ${{ secrets.AZORA_SSH_PRIVATE_KEY }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "${AZORA_SSH_PRIVATE_KEY}" | tr -d '\r' > ~/.ssh/azora_deploy
+          chmod 600 ~/.ssh/azora_deploy
+          ssh-keygen -y -f ~/.ssh/azora_deploy > /dev/null
+          printf '%s\n' \
+            '152.239.116.142 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHyErlb4oDnC/OkQn46xal1tIlNhbba6t3Xvjh3Tcjth' \
+            > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Deploy to Azora VPS
+        run: >
+          rsync -rlptDz --delete --exclude='.htaccess'
+          -e "ssh -i ~/.ssh/azora_deploy -o IdentitiesOnly=yes"
+          dist/ azora-deploy@152.239.116.142:/var/www/azoralabs.org/html/
+
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/azora_deploy
