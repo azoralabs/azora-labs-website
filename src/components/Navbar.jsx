@@ -47,7 +47,6 @@ export default function Navbar() {
           <img src="/assets/azora_logo.svg" alt="" />
           <span>Azora Labs</span>
         </Link>
-        <div className="site-nav__meta"><span>Open-source ecosystem</span></div>
         <div className="site-nav__links">
           {productLinks.map(renderProductLink)}
           <div className="site-nav__ecosystem" ref={ecosystemRef}>
@@ -83,7 +82,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="site-nav__mobile">
           {productLinks.map(renderProductLink)}
-          <span className="site-nav__mobile-label">Ecosystem</span>
+          <span className="site-nav__mobile-label">Azora Ecosystem</span>
           {ecosystemLinks.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
           <Link className="site-nav__mobile-donate" to="/donate">Donate</Link>
         </div>
