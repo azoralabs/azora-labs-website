@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { CommunityIcon, EcosystemIcon, HeartIcon, ProjectsIcon } from '../AzIcons.jsx'
 
 const productLinks = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'Community', href: '/community', internal: true },
+  { label: 'Projects', href: '#projects', icon: ProjectsIcon },
+  { label: 'Community', href: '/community', internal: true, icon: CommunityIcon },
 ]
 
 const ecosystemLinks = [
@@ -36,9 +37,9 @@ export default function Navbar() {
     }
   }, [])
 
-  const renderProductLink = (link) => link.internal
-    ? <Link key={link.href} to={link.href}>{link.label}</Link>
-    : <a key={link.href} href={link.href}>{link.label}</a>
+  const renderProductLink = ({ icon: Icon, ...link }) => link.internal
+    ? <Link key={link.href} to={link.href}><Icon />{link.label}</Link>
+    : <a key={link.href} href={link.href}><Icon />{link.label}</a>
 
   return (
     <nav className="site-nav">
@@ -56,7 +57,7 @@ export default function Navbar() {
               aria-haspopup="menu"
               onClick={() => setEcosystemOpen((open) => !open)}
             >
-              Ecosystem
+              <EcosystemIcon />Ecosystem
             </button>
             {ecosystemOpen && (
               <div className="site-nav__dropdown" role="menu">
@@ -68,7 +69,7 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          <Link className="site-nav__donate" to="/donate">Donate</Link>
+          <Link className="site-nav__donate" to="/donate"><HeartIcon />Donate</Link>
         </div>
         <button
           onClick={() => setMobileOpen((open) => !open)}

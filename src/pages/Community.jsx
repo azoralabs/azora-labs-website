@@ -25,13 +25,9 @@ const YouTubeIcon = () => (
   </svg>
 )
 
-const CoffeeIcon = () => (
+const SponsorsIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-    <path d="M18 8h1a4 4 0 010 8h-1" />
-    <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
-    <line x1="6" y1="1" x2="6" y2="4" />
-    <line x1="10" y1="1" x2="10" y2="4" />
-    <line x1="14" y1="1" x2="14" y2="4" />
+    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
   </svg>
 )
 
@@ -73,12 +69,12 @@ const links = [
     border: 'hover:border-az-10',
   },
   {
-    name: 'Buy Me a Coffee',
-    desc: 'Support Azora Labs with a one-time or recurring donation.',
-    href: 'https://buymeacoffee.com/azoralabs',
-    icon: CoffeeIcon,
-    color: 'text-az-yellow',
-    border: 'hover:border-az-yellow',
+    name: 'GitHub Sponsors',
+    desc: 'Support Azora Labs with a one-time or monthly sponsorship.',
+    href: 'https://github.com/sponsors/azoralabs',
+    icon: SponsorsIcon,
+    color: 'text-[#DB61A2]',
+    border: 'hover:border-[#DB61A2]',
   },
   {
     name: 'YouTube',

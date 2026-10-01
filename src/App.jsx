@@ -6,19 +6,19 @@ const projects = [
     name: 'Azora Studio',
     desc: 'Visual editor and IDE for the Azora Engine.',
     href: 'https://azorastudio.org',
-    color: 'border-az-primary bg-az-primary/10',
+    accent: 'var(--az-primary)',
   },
   {
     name: 'Azora Engine',
     desc: 'Cross-platform game engine built with Azora.',
     href: 'https://azoraengine.org',
-    color: 'border-az-secondary bg-az-secondary/10',
+    accent: 'var(--az-secondary)',
   },
   {
     name: 'Azora Language',
     desc: 'The Azora programming language compiler and toolchain.',
     href: 'https://azoralang.org',
-    color: 'border-az-red bg-az-red/10',
+    accent: 'var(--az-primary)',
   },
 ]
 
@@ -50,10 +50,13 @@ export default function App() {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`rounded-xl border ${p.color} p-6 hover:bg-white/10 transition-colors`}
+                  className="az-card"
                 >
-                  <h3 className="font-semibold text-az-10 text-lg mb-2">{p.name}</h3>
-                  <p className="text-sm text-az-45">{p.desc}</p>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="az-hex" style={{ background: p.accent }} aria-hidden="true" />
+                    <h3 className="az-heading">{p.name}</h3>
+                  </div>
+                  <p className="az-muted">{p.desc}</p>
                 </a>
               ))}
             </div>

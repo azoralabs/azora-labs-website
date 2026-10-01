@@ -1,13 +1,9 @@
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-const CoffeeIcon = () => (
+const SponsorsIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
-    <path d="M18 8h1a4 4 0 010 8h-1" />
-    <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
-    <line x1="6" y1="1" x2="6" y2="4" />
-    <line x1="10" y1="1" x2="10" y2="4" />
-    <line x1="14" y1="1" x2="14" y2="4" />
+    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
   </svg>
 )
 
@@ -30,8 +26,8 @@ const members = 4         // total supporting sponsors
 // Tiers: 'diamond', 'platinum', 'gold', 'silver', 'bronze'
 const sponsorsList = [
   { name: 'Merea Games', tier: 'gold', logo: '/assets/merea_logo.jpeg', href: 'https://mereagames.com', desc: 'Indie game studio crafting immersive experiences.' },
-  { name: 'DoubleG Arts', tier: 'platinum', logo: '/assets/dga.png', href: 'https://doublegarts.eu', desc: 'Creative studio building digital experiences that matter.' },
-  { name: 'Daniela Bilciu', tier: 'bronze', logo: '/assets/daniela_bilciu_logo.png', href: 'https://danielabilciu.eu', circle: true, desc: 'Healthcare professional interested in innovative projects of all kind.' },
+  // { name: 'DoubleG Arts', tier: 'platinum', logo: '/assets/dga.png', href: 'https://doublegarts.eu', desc: 'Creative studio building digital experiences that matter.' },
+  // { name: 'Daniela Bilciu', tier: 'bronze', logo: '/assets/daniela_bilciu_logo.png', href: 'https://danielabilciu.eu', circle: true, desc: 'Healthcare professional interested in innovative projects of all kind.' },
   { name: 'Mihaela Gheorghe', tier: 'bronze', circle: true, desc: 'Generous supporter of open-source development.' },
 ]
 
@@ -87,20 +83,32 @@ export default function Donate() {
           {/* Donation Platforms */}
           <section className="mb-16">
             <h2 className="text-xl font-semibold text-az-10 mb-6 text-center">Donate via</h2>
-            <div className="flex justify-center">
-              {/* Buy Me a Coffee */}
+            <p className="text-az-45 text-center text-sm mb-6">GitHub Sponsors is now our recommended way to support Azora Labs.</p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center gap-4">
+              {/* GitHub Sponsors */}
+              <a
+                href="https://github.com/sponsors/azoralabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-transparent bg-az-85 p-6 hover:border-[#DB61A2] hover:bg-white/10 transition-colors group w-full max-w-xs"
+              >
+                <span className="text-[#DB61A2] group-hover:scale-110 transition-transform">
+                  <SponsorsIcon />
+                </span>
+                <div>
+                  <p className="font-semibold text-az-10">GitHub Sponsors</p>
+                  <p className="text-sm text-az-45">Recommended support method</p>
+                </div>
+              </a>
               <a
                 href="https://buymeacoffee.com/azoralabs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-transparent bg-az-85 p-6 hover:border-az-yellow hover:bg-white/10 transition-colors group w-full max-w-xs"
+                className="flex items-center rounded-xl border border-az-75 bg-az-85 p-6 hover:border-az-yellow hover:bg-white/10 transition-colors w-full max-w-xs"
               >
-                <span className="text-az-yellow group-hover:scale-110 transition-transform">
-                  <CoffeeIcon />
-                </span>
                 <div>
                   <p className="font-semibold text-az-10">Buy Me a Coffee</p>
-                  <p className="text-sm text-az-45">azoralabs</p>
+                  <p className="text-sm text-az-45 mt-1">Our old support method. We now recommend GitHub Sponsors.</p>
                 </div>
               </a>
             </div>
@@ -116,7 +124,7 @@ export default function Donate() {
               {tiers.map(t => (
                 <a
                   key={t.key}
-                  href="https://buymeacoffee.com/azoralabs/membership"
+                  href="https://github.com/sponsors/azoralabs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`rounded-xl border p-5 hover:bg-white/10 transition-colors ${tierColors[t.key]}`}
